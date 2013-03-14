@@ -1,6 +1,6 @@
-# JSONStream
+# jstream
 
-streaming JSON.parse and stringify
+streaming JSON.parse and stringify fork of dominictarr/JSONStream
 
 <img src=https://secure.travis-ci.org/dominictarr/JSONStream.png?branch=master>
 
@@ -9,10 +9,10 @@ streaming JSON.parse and stringify
 ```javascript
 
 var request = require('request')
-  , JSONStream = require('JSONStream')
+  , jstream = require('jstream')
   , es = require('event-stream')
 
-var parser = JSONStream.parse(['rows', true])
+var parser = jstream('rows.*')
   , req = request({url: 'http://isaacs.couchone.com/registry/_all_docs'})
   , logger = es.mapSync(function (data) {
       console.error(data)
