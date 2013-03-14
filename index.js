@@ -11,6 +11,7 @@ var Parser = require('jsonparse')
 */
 
 exports.parse = function (path) {
+  if ('string' == typeof path) path = parseNotation(path);
 
   var stream = new Stream()
   var parser = new Parser()
@@ -188,4 +189,18 @@ exports.stringifyObject = function (op, sep, cl) {
   stream.readable = true
 
   return stream
+}
+
+/**
+ * Parse string notation, for example "*.name.first".
+ *
+ * @param {String} str
+ * @return {Array}
+ * @api private
+ */
+
+function parseNotation(str) {
+  return str.split('.').map(function(prop){
+    return '*' == prop ? true : prop;
+  });
 }
