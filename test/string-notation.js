@@ -3,7 +3,7 @@ var fs = require ('fs')
   , json = require('..')
   , assert = require('assert');
 
-var parser = json.parse('*.name.first');
+var parser = json('*.name.first');
 
 var names = ['Tobi', 'Loki', 'Jane'];
 var calls = 0;

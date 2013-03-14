@@ -1,6 +1,10 @@
 var Parser = require('jsonparse')
   , Stream = require('stream').Stream
 
+exports = module.exports = function(path){
+  return exports.parse(path);
+};
+
 /*
 
   the value of this.stack that creationix's jsonparse has is weird.
